@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+compileJava.options.encoding = 'UTF-8'
+
+
+jar {
+    baseName = 'apk-parse'
+    version =  '1.0'
+}
