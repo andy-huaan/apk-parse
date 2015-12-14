@@ -1,5 +1,7 @@
 import com.blueshit.apk.bean.ApkInfo;
 import com.blueshit.apk.utils.ApkParseUtils;
+import com.blueshit.apk.utils.FileUtils;
+import com.blueshit.apk.utils.Z_7Utils;
 
 /**
  * 调用APK解析程序测试类
@@ -16,5 +18,12 @@ public class ApkParseDemo {
         String apkPath = "E:/a/AdDemo.apk";
 
         ApkInfo apkInfo = new ApkParseUtils(apptPath).getApkInfo(apkPath);
+
+        String z7Path = "D:/Bin/7-Zip/7z.exe";
+        String destPath = "E:/a/AdDemo";
+        Z_7Utils.tar7Z(z7Path, apkPath, destPath);
+
+        FileUtils.copyFile(destPath+"/"+ apkInfo.getApplicationIcon(),"E:/a/");
+        FileUtils.delAllFile(destPath);
     }
 }
